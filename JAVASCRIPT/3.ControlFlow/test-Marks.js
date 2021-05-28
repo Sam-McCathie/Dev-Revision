@@ -6,7 +6,7 @@
 // 80 - 89: B
 // 90 - 100: A
 
-const marks = [60, 70, 30, 80, 90, 70, 80, 100];
+const marks = [69];
 
 console.log(calculateGrade(marks));
 
@@ -27,4 +27,26 @@ function calculateGrade(marks) {
   } else if (averageGrade <= 69 && averageGrade >= 60) {
     return "D";
   } else return "F";
+}
+
+//Alternative
+const array = marks; // take array from above so results are the same.
+
+console.log(calculateGradeMain(marks));
+
+function calculateGradeMain(marks) {
+  const average = calculateAverage(marks);
+  if (average < 60) return "F alt";
+  if (average < 70) return "D alt";
+  if (average < 80) return "C alt";
+  if (average < 90) return "B alt";
+  return "A";
+}
+
+function calculateAverage(array) {
+  let sum = 0;
+  for (let value of array) {
+    sum += value;
+    return sum / array.length;
+  }
 }
